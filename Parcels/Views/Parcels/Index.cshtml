@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>USPCSPS Diliverees</title>
+  </head>
+  <body>
+    @using Parcels.Models;
+
+    <h1>USPCSPS Diliverees</h1>
+    <h3>Your Parcels:</h3>
+
+    <ul>
+      @if (Model.Count == 0)
+      {
+        <p>You have no parcels yet!</p>
+      }
+      @if(Model.Count != 0)
+      {
+        @foreach(Box box in Model)
+        {
+          <span>---------------------</span>
+          <li>Length: @box.GetLength()</li>
+          <li>Width: @box.GetWidth()</li>
+          <li>Height: @box.GetHeight()</li>
+          <li>Weight: @box.GetWeight()</li>
+          <li>Volume: @box.Volume()</li>
+          <li>Shipping Cost: $ @box.ShippingCost()</li>
+          <span>---------------------</span>
+        }
+      }
+    </ul>
+    <a href="/parcels/new">Add another parcel.</a>
+  </body>
+</html>

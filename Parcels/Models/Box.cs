@@ -40,7 +40,7 @@ namespace Parcels.Models
       {
           return _length;
       }
-      public int Getwidth()
+      public int GetWidth()
       {
           return _width;
       }
